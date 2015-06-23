@@ -131,3 +131,8 @@ class TestIdentifierMethods(TestCase):
         self.assertEqual(identifier._get_identifier_string(), '10041021314')
         identifier.create()
         self.assertEqual(identifier._get_identifier_string(), '10041021325')
+    
+    def test_increment(self):
+        """  """
+       
+    

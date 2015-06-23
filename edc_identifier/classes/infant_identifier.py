@@ -36,7 +36,7 @@ class InfantIdentifier(BaseIdentifier):
     """
 
     def __init__(self, maternal_identifier, study_site, birth_order, live_infants,
-                 live_infants_to_register, user=None):
+                 live_infants_to_register, user=None,**kwargs):
         self.subject_type = 'infant'
         self.birth_order = birth_order
         self.live_infants = live_infants
@@ -47,7 +47,7 @@ class InfantIdentifier(BaseIdentifier):
         identifier_format = "{maternal_identifier}-{suffix}"
         super(InfantIdentifier, self).__init__(
             identifier_format=identifier_format, site_code=study_site.site_code, is_derived=True,
-            add_check_digit=False)
+            add_check_digit=False,**kwargs)
 
     def consent_required(self):
         return False
@@ -63,7 +63,7 @@ class InfantIdentifier(BaseIdentifier):
 #         birth_order = kwargs.get('birth_order')
 #         live_infants = kwargs.get('live_infants')
 #         live_infants_to_register = kwargs.get('live_infants_to_register')
-        # maternal edc_identifier should exist in SubjectIdentifier
+         #maternal edc_identifier should exist in SubjectIdentifier
         if not SubjectIdentifier.objects.filter(identifier=self.maternal_identifier):
             raise IdentifierError('Unknown maternal_identifier {0}.'.format(self.maternal_identifier))
         # some checks on logic of live and live to register
