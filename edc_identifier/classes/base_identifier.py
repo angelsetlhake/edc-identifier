@@ -19,7 +19,7 @@ class BaseIdentifier(object):
         model_name=None, site_code=None, padding=None,
         modulus=None, identifier_prefix=None, is_derived=False, add_check_digit=None, using=None,
         sequence_app_label=None, sequence_model_name=None
-    ):
+        ):
         self._sequence_app_label = None
         self._sequence_model_name = None
         self.padding = None

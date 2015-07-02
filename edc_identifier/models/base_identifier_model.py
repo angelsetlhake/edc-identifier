@@ -17,7 +17,7 @@ class BaseIdentifierModel(BaseUuidModel, SyncMixin):
 
     identifier = models.CharField(max_length=36, unique=True, editable=False)
     padding = models.IntegerField(default=4, editable=False)
-    sequence_number = models.IntegerField()
+    sequence_number = models.IntegerField(default=1001)
     device_id = models.IntegerField(default=0)
     is_derived = models.BooleanField(default=False)
     sequence_app_label = models.CharField(max_length=50, editable=False, default='edc_identifier')
